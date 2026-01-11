@@ -2,7 +2,6 @@
 * { box-sizing: border-box; }
 
 html, body {
-  margin-right: 40px;
   padding: 0;
   width: 100%;
   overflow-x: hidden;   
@@ -68,6 +67,12 @@ img { max-width: 100%; height: auto; display: block; }
   display: none;
 }
 
+.OnlineButton,
+.OnsiteButton {
+  flex: 0 0 auto;   /* växer inte, krymper inte */
+  white-space: nowrap;
+}
+
 footer {
   background-color: #001826;
   color: white;
@@ -89,19 +94,24 @@ footer {
 }
 
 @media (max-width: 400px) {
+  body {
+    margin-right:0rem;
+    padding-right: 0.1rem;
+    overflow-x: hidden
+  }
 
   .Header {
     display: grid;
-    grid-template-columns: 3rem 1fr;
+    grid-template-columns: 4rem 1fr;
     align-items: center;
-    column-gap: 3.1rem;
+    column-gap: 1.9rem;
     padding: 1.2rem 1.2rem;
     border-radius: 0px;
     position: relative;
   }
 
   .Header img {
-    height: 70px;
+    height: 65px;
     width: auto;
     max-width: none;
     display: block;
@@ -109,9 +119,9 @@ footer {
 
   .HeaderText {
     grid-column: 2/3;
-    font-size: 1.1rem;
+    font-size: 0.9rem;
     font-weight: 400;
-    white-space: nowrap;
+    white-space: normal;
     margin: 0;
   }
 
@@ -128,7 +138,7 @@ footer {
     justify-content: space-between;
     background: black;
     border: 0;
-    padding: 0.8px;
+   padding: 0.8px;
   }
 
   .menu-button span {
@@ -242,8 +252,9 @@ footer {
     align-items: center;
     justify-items: center;
     margin-top: 0.7rem;
-    position: static;  
-    width: auto;        
+    position:static;  
+    width: auto; 
+
   }
 
   .OnsiteButton { order: 1; }
@@ -257,6 +268,7 @@ footer {
     color: #001826;
     padding: 0.6rem 1.7rem;
     margin: 0.9rem;
+    margin-left: -1rem;   
     border: none;
     border-radius: 4px;
     border: 2px solid transparent;
@@ -285,7 +297,7 @@ footer {
   }
   .TestimonialsContent1 {
     /*flex: 0 0.9 460px;*/
-    flex: 0 0.9 300px;
+    flex: 0 0.9 250px;
     display: flex;
     align-content: flex-start;
     gap: 0.1rem 1rem;
@@ -329,9 +341,8 @@ footer {
     margin-top: 0rem;
   }
   .TestimonialsContent2 {
-    /*flex: 0 0.9 460px;*/
-     flex: 1 1 auto;
-  max-width: 100%;
+   /*flex: 0 0.9 460px;*/
+    flex: 0 0.9 300px;
     display: flex;
     align-content: flex-start;
     gap: 0.1rem 1rem;
@@ -340,7 +351,7 @@ footer {
     border-radius: 1px;
     border: 3px solid transparent;
     background: #fff;
-    /*max-width: 50rem;*/
+    max-width: 50rem;
   }
   .TestimonialsContent2:hover {
     border-color: rgb(15, 160, 232);
@@ -396,18 +407,23 @@ footer {
   .PopularChallengesCards {
     display: grid;
     grid-auto-flow: column;
-    grid-auto-columns: 100%;
+    grid-auto-columns: 90%;
     overflow-x: auto;
+  overflow-y: hidden;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
     padding: 0 1rem 1rem;
     margin-left: 0;
     /*padding: 0rem 3rem 1.5rem 2rem;*/
     /*margin-left: 0.8rem;*/
-    gap: 2rem;
+    gap: 1rem;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     touch-action: pan-x;
   }
   .Card {
+    flex: 0 0 auto;
     scroll-snap-align: center;
     background: #fff;
     border-radius: 8px;
@@ -418,7 +434,7 @@ footer {
     font-size: 0.9rem;
     font-weight: 250;
     margin-left: 0.8rem;
-    margin-right: 0.5rem;
+    margin-right: 0.8rem;
   }
   .Card img {
     width: 100%;
@@ -441,10 +457,12 @@ footer {
     border: none;
     border-radius: 4px;
     padding: 0.7rem 1.8rem;
-   /* margin-left: 7.5rem;*/
+   /*margin-left: 8rem;*/
+    /*margin-bottom: 0.6rem;*/
     margin-left: 0;
-    width: 100%;
-    margin-bottom: 0.6rem;
+  display: block;
+ 
+  margin: 0.6rem 0.8rem 0.6rem auto;
   }
   .Details {
     display: flex;
@@ -507,14 +525,16 @@ footer {
     text-decoration-thickness: 3px;
   }
   .FullWidthSection {
-    display: flex;
+
+    /*display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: center;*/
     align-items: center;
     background-color: black;
     width: 100%;
     height: 53vh;
     padding: 1.8rem;
+    margin-right: 0.5rem;
     gap: 2rem;
   }
   .FullWidthSectionText {
@@ -522,7 +542,7 @@ footer {
     font-family: sans-serif;
     text-align: center;
     font-size: 1.3rem;
-    margin: 0;
+    margin-bottom: 3.5rem;
   }
   .FullWidthSectionText:hover {
     text-decoration: underline;
@@ -536,8 +556,8 @@ footer {
     font-family: sans-serif;
     text-decoration: none;
     font-weight: 700;
-    padding: 0.9rem 2.5rem;
-    margin: 0.9rem;
+    padding: 1.2rem 1.4rem;
+    margin: 0.9rem 2rem;
     border: 2px solid hsl(192, 56.7567567568%, 63%);
     border-radius: 0.3rem;
   }
@@ -599,8 +619,7 @@ footer {
     font-weight: 540;
     color: white;
     padding: 0.75rem 2.6rem;
-    margin: 3rem;
-    margin-left: 1rem;
+    margin-left: 3rem;
     margin-bottom: 3rem;
     margin-top: 1.8rem;
     border: none;
@@ -662,15 +681,14 @@ footer {
     text-decoration-thickness: 1px;
   }
   .OnlinePlayButton {
-    background-color: #dc3232;
+   background-color: #dc3232;
     font-family: Roboto;
     font-size: 1.25rem;
     font-weight: 540;
     color: white;
     padding: 0.75rem 2.6rem;
-    margin: 3rem;
-    margin-left: 1rem;
-    margin-bottom: 5rem;
+    margin-left: 3rem;
+    margin-bottom: 3rem;
     margin-top: 1.8rem;
     border: none;
     border-radius: 3px;
@@ -751,12 +769,11 @@ footer {
   }
 }
 @media (min-width: 401px) and (max-width: 768px) {
-  
   .Header {
     display: grid;
-    grid-template-columns: 5rem 1fr;
+    grid-template-columns: auto 1fr;
     align-items: center;
-    column-gap: 1.2rem;
+    column-gap: 0.6rem;
     padding: 1.2rem 1.5rem;
     position: relative;
   }
@@ -840,6 +857,7 @@ footer {
     width: 100%;
     height: 18rem;
     object-fit: cover;
+    position: relative;
   }
 
   .HeroDesktop { display: none; }
@@ -847,11 +865,11 @@ footer {
   .CTAButtonTop {
     display: flex;
     justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    margin: 1rem 0 0;
-    position: static; 
-    width: auto;      
+    gap: 1rem;;
+    position: absolute; 
+    left: 50%;
+      margin-top: -2rem;           
+  transform: translateX(-50%);    
   }
 
   .OnsiteButton,
@@ -863,6 +881,8 @@ footer {
     border-radius: 4px;
     border: 3px solid transparent;
     box-sizing: border-box;
+     flex: 0 0 auto;
+     white-space: nowrap;
   }
 
   .OnlineButton {
@@ -972,7 +992,7 @@ footer {
     font-style: normal;
     margin: 0;
   }
-  .PopularChallenges {
+   .PopularChallenges {
     width: 100%;
     max-width: 100%;
     display: flex;
@@ -985,15 +1005,15 @@ footer {
     justify-self: center;
     text-align: center;
     font-family: sans-serif;
-    font-weight: 450;
-    margin: 0 0 1rem;
+    font-weight: 400;
+    margin: 0;
   }
   .PopularChallengesCards {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
     width: 100%;
-    height: 18rem;
+    height: 14rem;
     max-width: 1200px;
     margin: 0 auto;
     padding: 2rem;
@@ -1007,7 +1027,7 @@ footer {
   }
   .Card img {
     width: 100%;
-    height: 12rem;
+    height: 10rem;
     display: block;
     border-radius: 10px 10px 0 0;
   }
@@ -1015,10 +1035,11 @@ footer {
     border-color: #035ecd;
   }
   .Card h3 {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     font-family: sans-serif;
     font-weight: 300;
-    margin-top: 0.7rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0rem;
   }
   .Card Button {
     Background-color: rgb(215, 10, 10);
@@ -1027,24 +1048,29 @@ footer {
     font-weight: 550;
     border: none;
     border-radius: 4px;
-    padding: 0.7rem 1.7rem;
+    padding: 0.6rem 1.6rem;
     margin-left: 9rem;
-    margin-bottom: 0.5rem;
+    /*margin-bottom: 0.5rem;*/
+  width: max-content;
+  white-space: nowrap;
   }
   .Card Info {
     padding: 1rem;
     font-family: sans-serif;
+    
   }
   .Details {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 0.5rem;
+    margin-top: 0rem;
   }
   .Stars {
     color: #e11c1c;
     font-size: 1.2rem;
     letter-spacing: 2px;
+    margin-bottom: 0rem;
   }
   .Card Participants {
     font-size: 0.8rem;
@@ -1054,9 +1080,11 @@ footer {
     width: 100%;
     display: grid;
     grid-auto-flow: column;
+    grid-auto-columns: max-content;
     justify-content: center;
-    margin: 2rem;
-    padding: 2rem 0;
+    margin-top: 6rem;
+    margin-bottom: 3rem;
+        
   }
   .OnlineButtonCenter {
     background-color: red;
@@ -1361,13 +1389,12 @@ footer {
 }
 
 @media (min-width: 769px) {
-   body { overflow-y: scroll; }
+   
   .Header {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: auto auto;
-    align-items: center;
-    gap: 2rem;
+    grid-template-columns: auto 1fr auto;
+     align-items: center;
+    gap: 0.5rem;
     padding: 1.9rem;
   }
 
@@ -1384,11 +1411,9 @@ footer {
     font-size: 1.8rem;
     font-weight: 650;
     white-space: nowrap;
-    padding: 2rem;
-    margin-top: 1.1rem;
-    margin-left: -25rem;
+    margin-top: 0rem;  
   }
-
+   
   .HeaderText br { display: none; }
 
   .NavigationBar {
@@ -1426,7 +1451,9 @@ footer {
   }
 
   .menu-button { display: none; }
+  
   nav[hidden] { display: block !important; }
+
   .Header > .NavigationBar { display: block; }
 
   .HeroDesktop {
@@ -1440,18 +1467,21 @@ footer {
   }
 
   .HeroMobile { display: none; }
-
-  /* Desktop: absolute CTA (som du hade) */
+  
   .CTAButtonTop {
     display: flex;
     position: absolute;
-    align-items: center;
     gap: 1rem;
-    margin-left: 24rem;
-    margin-top: -2rem;
-    width: 100%;
+     left: 50%;
+      margin-top: -2rem;           
+  transform: translateX(-50%);
+    width: auto;
   }
-
+.OnlineButton,
+.OnsiteButton {
+  flex: 0 0 auto;   /* växer inte, krymper inte */
+  white-space: nowrap;
+}
   .OnlineButton {
     background-color: red;
     color: white;
@@ -1593,15 +1623,15 @@ footer {
     justify-self: center;
     text-align: center;
     font-family: sans-serif;
-    font-weight: 450;
-    margin: 0 0 1rem;
+    font-weight: 400;
+    margin: 0;
   }
   .PopularChallengesCards {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
     width: 100%;
-    height: 18rem;
+    height: 14rem;
     max-width: 1200px;
     margin: 0 auto;
     padding: 2rem;
@@ -1615,7 +1645,7 @@ footer {
   }
   .Card img {
     width: 100%;
-    height: 12rem;
+    height: 10rem;
     display: block;
     border-radius: 10px 10px 0 0;
   }
@@ -1623,10 +1653,11 @@ footer {
     border-color: #035ecd;
   }
   .Card h3 {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     font-family: sans-serif;
     font-weight: 300;
-    margin-top: 0.7rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0rem;
   }
   .Card Button {
     Background-color: rgb(215, 10, 10);
@@ -1635,24 +1666,29 @@ footer {
     font-weight: 550;
     border: none;
     border-radius: 4px;
-    padding: 0.7rem 1.7rem;
+    padding: 0.6rem 1.6rem;
     margin-left: 9rem;
-    margin-bottom: 0.5rem;
+    /*margin-bottom: 0.5rem;*/
+  width: max-content;
+  white-space: nowrap;
   }
   .Card Info {
     padding: 1rem;
     font-family: sans-serif;
+    
   }
   .Details {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 0.5rem;
+    margin-top: 0rem;
   }
   .Stars {
     color: #e11c1c;
     font-size: 1.2rem;
     letter-spacing: 2px;
+    margin-bottom: 0rem;
   }
   .Card Participants {
     font-size: 0.8rem;
@@ -1662,9 +1698,11 @@ footer {
     width: 100%;
     display: grid;
     grid-auto-flow: column;
-    justify-content: center;
-    margin: 2rem;
-    padding: 2rem 0;
+    grid-auto-columns: max-content;
+   justify-content: center; 
+   gap: 1rem;
+   margin-top: 6rem;
+    margin-bottom: 3rem;
   }
   .OnlineButtonCenter {
     background-color: red;
